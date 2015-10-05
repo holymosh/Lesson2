@@ -34,7 +34,7 @@ namespace Lesson2
 			return serializedData == null ? new T[0] : DeserializeEntity<T[]>(serializedData);
 		}
 
-		private string GetRepositoryFilePath(Type type)
+		private string GetRepositoryFilePath(Type type) 
 		{
 			var fileName = type.Name + FileFormat;
 			return Path.Combine(_databaseDirectory.FullName, fileName);
