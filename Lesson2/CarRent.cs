@@ -26,14 +26,17 @@ namespace Lesson2
 
             FileDatabase fbase = new FileDatabase(@"C:\holymosh\DBase");
             var cars = fbase.GetFromDatabase<Car>();
-            CarList.Items.AddRange(cars);
+            
           //  DateTime date;
            // date = System.DateTime.Now;
            // Rent[] rent = new Rent[] ;
             
             FileDatabase dbase = new FileDatabase(@"C:\holymosh\DBase");
-            var dates = dbase.GetFromDatabase<Rent>(); 
-           
+            var dates = dbase.GetFromDatabase<Rent>();
+            CarService service = new CarService(cars, dates);
+            Car[] new_cars = service.getAvailableCars(dateTimePicker1.Value, dateTimePicker2.Value);
+            CarList.Items.AddRange(new_cars);
+
         }
 
         private void dateTimePicker1_ValueChanged(object sender, System.EventArgs e)
@@ -47,7 +50,7 @@ namespace Lesson2
             CarService service = new CarService(cars, dates);
             Car[] new_cars = service.getAvailableCars(dateTimePicker1.Value, dateTimePicker2.Value);
             CarList.Items.Clear();
-            CarList.Items.AddRange(cars);
+            CarList.Items.AddRange(new_cars);
         }
 
         private void dateTimePicker2_ValueChanged(object sender, System.EventArgs e)
@@ -61,7 +64,7 @@ namespace Lesson2
             CarService service = new CarService(cars, dates);
             Car[] new_cars = service.getAvailableCars(dateTimePicker1.Value, dateTimePicker2.Value);
             CarList.Items.Clear();
-            CarList.Items.AddRange(cars);
+            CarList.Items.AddRange(new_cars);
         }
 
         private void MakeAnOrderButton_Click(object sender, System.EventArgs e)
