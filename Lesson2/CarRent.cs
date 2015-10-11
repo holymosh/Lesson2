@@ -40,12 +40,28 @@ namespace Lesson2
         {
             if (dateTimePicker2.Value < dateTimePicker1.Value)
                 dateTimePicker2.Value = dateTimePicker1.Value;
+            FileDatabase fbase = new FileDatabase(@"C:\holymosh\DBase");
+            var cars = fbase.GetFromDatabase<Car>();
+            FileDatabase dbase = new FileDatabase(@"C:\holymosh\DBase");
+            var dates = dbase.GetFromDatabase<Rent>();
+            CarService service = new CarService(cars, dates);
+            Car[] new_cars = service.getAvailableCars(dateTimePicker1.Value, dateTimePicker2.Value);
+            CarList.Items.Clear();
+            CarList.Items.AddRange(cars);
         }
 
         private void dateTimePicker2_ValueChanged(object sender, System.EventArgs e)
         {
             if (dateTimePicker2.Value < dateTimePicker1.Value)
                 dateTimePicker2.Value = dateTimePicker1.Value;
+            FileDatabase fbase = new FileDatabase(@"C:\holymosh\DBase");
+            var cars = fbase.GetFromDatabase<Car>();
+            FileDatabase dbase = new FileDatabase(@"C:\holymosh\DBase");
+            var dates = dbase.GetFromDatabase<Rent>();
+            CarService service = new CarService(cars, dates);
+            Car[] new_cars = service.getAvailableCars(dateTimePicker1.Value, dateTimePicker2.Value);
+            CarList.Items.Clear();
+            CarList.Items.AddRange(cars);
         }
 
         private void MakeAnOrderButton_Click(object sender, System.EventArgs e)
