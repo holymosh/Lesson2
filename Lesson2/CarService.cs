@@ -12,7 +12,7 @@ namespace Lesson2
         Rent[] rent;
         public CarService()
         {
-         DBase = new FileDatabase(@"C:\holymosh\DBase.txt");
+         DBase = new FileDatabase(@"C:\holymosh\DBase");
             rent = DBase.GetFromDatabase<Rent>();
 
 
@@ -21,10 +21,7 @@ namespace Lesson2
         }
         public void getAvailableCars()
         {
-            for(int i = 0; i < rent.Length; i++)
-            {
-                if()
-            }
+           
 
         }
         

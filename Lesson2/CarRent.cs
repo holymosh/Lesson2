@@ -17,7 +17,7 @@ namespace Lesson2
         private void CarList_SelectedIndexChanged(object sender, System.EventArgs e)
         {
             var selectedCar = CarList.SelectedItem as Car;
-            CarDescription.Text = selectedCar.getDescription();
+            CarDescription.Text = selectedCar._description;
         }
 
         private void CarRent_Load(object sender, System.EventArgs e)
@@ -28,8 +28,12 @@ namespace Lesson2
                 new Car("Мерседес", "Классная машина"),
                 new Car("Жигули", "машина"),
                 new Car("Мазератти", "Классная машина")
+                
             };
+            FileDatabase fbase = new FileDatabase(@"C:\holymosh\DBase");
+            fbase.SaveToDatabase<Car>(cars);
             CarList.Items.AddRange(cars);
+
         }
 
         private void dateTimePicker1_ValueChanged(object sender, System.EventArgs e)
