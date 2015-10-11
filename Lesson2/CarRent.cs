@@ -50,6 +50,7 @@ namespace Lesson2
             CarService service = new CarService(all_cars, rent_dates);
             Car[] available_cars = service.getAvailableCars(dateTimePicker1.Value, dateTimePicker2.Value);
             CarList.Items.Clear();
+            if(available_cars==null)
             CarList.Items.AddRange(available_cars);
         }
 
