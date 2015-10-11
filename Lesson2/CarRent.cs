@@ -25,17 +25,17 @@ namespace Lesson2
         {
 
             FileDatabase fbase = new FileDatabase(@"C:\holymosh\DBase");
-            var cars = fbase.GetFromDatabase<Car>();
+            var all_cars = fbase.GetFromDatabase<Car>();
             
           //  DateTime date;
            // date = System.DateTime.Now;
            // Rent[] rent = new Rent[] ;
             
             FileDatabase dbase = new FileDatabase(@"C:\holymosh\DBase");
-            var dates = dbase.GetFromDatabase<Rent>();
-            CarService service = new CarService(cars, dates);
-            Car[] new_cars = service.getAvailableCars(dateTimePicker1.Value, dateTimePicker2.Value);
-            CarList.Items.AddRange(new_cars);
+            var rent_dates = dbase.GetFromDatabase<Rent>();
+            CarService service = new CarService(all_cars, rent_dates);
+            Car[] availanle_cars = service.getAvailableCars(dateTimePicker1.Value, dateTimePicker2.Value);
+            CarList.Items.AddRange(availanle_cars);
 
         }
 
@@ -44,13 +44,13 @@ namespace Lesson2
             if (dateTimePicker2.Value < dateTimePicker1.Value)
                 dateTimePicker2.Value = dateTimePicker1.Value;
             FileDatabase fbase = new FileDatabase(@"C:\holymosh\DBase");
-            var cars = fbase.GetFromDatabase<Car>();
+            var all_cars = fbase.GetFromDatabase<Car>();
             FileDatabase dbase = new FileDatabase(@"C:\holymosh\DBase");
-            var dates = dbase.GetFromDatabase<Rent>();
-            CarService service = new CarService(cars, dates);
-            Car[] new_cars = service.getAvailableCars(dateTimePicker1.Value, dateTimePicker2.Value);
+            var rent_dates = dbase.GetFromDatabase<Rent>();
+            CarService service = new CarService(all_cars, rent_dates);
+            Car[] available_cars = service.getAvailableCars(dateTimePicker1.Value, dateTimePicker2.Value);
             CarList.Items.Clear();
-            CarList.Items.AddRange(new_cars);
+            CarList.Items.AddRange(available_cars);
         }
 
         private void dateTimePicker2_ValueChanged(object sender, System.EventArgs e)
@@ -58,13 +58,13 @@ namespace Lesson2
             if (dateTimePicker2.Value < dateTimePicker1.Value)
                 dateTimePicker2.Value = dateTimePicker1.Value;
             FileDatabase fbase = new FileDatabase(@"C:\holymosh\DBase");
-            var cars = fbase.GetFromDatabase<Car>();
+            var all_cars = fbase.GetFromDatabase<Car>();
             FileDatabase dbase = new FileDatabase(@"C:\holymosh\DBase");
-            var dates = dbase.GetFromDatabase<Rent>();
-            CarService service = new CarService(cars, dates);
-            Car[] new_cars = service.getAvailableCars(dateTimePicker1.Value, dateTimePicker2.Value);
+            var rent_dates = dbase.GetFromDatabase<Rent>();
+            CarService service = new CarService(all_cars, rent_dates);
+            Car[] available_cars = service.getAvailableCars(dateTimePicker1.Value, dateTimePicker2.Value);
             CarList.Items.Clear();
-            CarList.Items.AddRange(new_cars);
+            CarList.Items.AddRange(available_cars);
         }
 
         private void MakeAnOrderButton_Click(object sender, System.EventArgs e)
