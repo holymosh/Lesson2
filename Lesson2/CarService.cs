@@ -8,22 +8,22 @@ namespace Lesson2
 {
     public class CarService
     {
-        FileDatabase DBase;
-        Rent[] rent;
-        public CarService()
-        {
-         DBase = new FileDatabase(@"C:\holymosh\DBase");
-            rent = DBase.GetFromDatabase<Rent>();
+       // FileDatabase DBase;
+      //  Rent[] rent;
+       // public CarService()
+       // {
+        // DBase = new FileDatabase(@"C:\holymosh\DBase");
+         //   rent = DBase.GetFromDatabase<Rent>();
 
 
 
 
-        }
-        public void getAvailableCars()
-        {
+      //  }
+       // public void getAvailableCars()
+      //  {
            
 
-        }
+       // }
         
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace Lesson2
 {
@@ -17,23 +18,22 @@ namespace Lesson2
         private void CarList_SelectedIndexChanged(object sender, System.EventArgs e)
         {
             var selectedCar = CarList.SelectedItem as Car;
-            CarDescription.Text = selectedCar._description;
+            CarDescription.Text = selectedCar.description;
         }
 
         private void CarRent_Load(object sender, System.EventArgs e)
         {
-            var cars = new Car[]
-            {
-                new Car("БМВ", "Классная машина"),
-                new Car("Мерседес", "Классная машина"),
-                new Car("Жигули", "машина"),
-                new Car("Мазератти", "Классная машина")
-                
-            };
-            FileDatabase fbase = new FileDatabase(@"C:\holymosh\DBase");
-            fbase.SaveToDatabase<Car>(cars);
-            CarList.Items.AddRange(cars);
 
+            FileDatabase fbase = new FileDatabase(@"C:\holymosh\DBase");
+            var cars = fbase.GetFromDatabase<Car>();
+            CarList.Items.AddRange(cars);
+          //  DateTime date;
+           // date = System.DateTime.Now;
+           // Rent[] rent = new Rent[] ;
+            
+            FileDatabase dbase = new FileDatabase(@"C:\holymosh\DBase");
+            var dates = dbase.GetFromDatabase<Rent>(); 
+           
         }
 
         private void dateTimePicker1_ValueChanged(object sender, System.EventArgs e)

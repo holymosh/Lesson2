@@ -8,35 +8,29 @@ namespace Lesson2
 {
    public class Rent 
     {
-        private string NameCar;
+        private string carName;
         private DateTime Begindate;
         private DateTime EndDate;
-       // public string getNameCar()
-       // {
-         //   return NameCar;
-      //  }
-      //  public void  setNameCar(string NameCar)
-      //  {
-       //     this.NameCar = NameCar;
-       // }
-       // public DateTime getBegindate()
-      //  {
-       //     return Begindate;
-      //  }
-      //  public void setBegindate(DateTime Begindate)
-       // {
-       //     this.Begindate = Begindate;
-       // }
-       //  public DateTime getEndDate()
-       // {
-       //     return EndDate;
-       // }
-       // public void setEndDate(DateTime EndDate)
-     //   {
-         //   this.EndDate = EndDate;
-
-        //}
-        
-
+        public string nameCar
+        {
+            get { return carName; }
+            set { carName = "bmw"; }
+        }
+         public DateTime begindate
+        {
+            get { return Begindate; }
+            set { Begindate = value; }
+        }
+        public DateTime enddate
+        {
+            get { return EndDate; }
+            set { EndDate = value; }
+        }
+        public Rent(DateTime begindate, DateTime enddate, string nameCar )
+        {
+            carName = nameCar;
+            Begindate = begindate;
+            EndDate = enddate;
+        }
     }
 }
