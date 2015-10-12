@@ -36,7 +36,8 @@ namespace Lesson2
                 {
                     if (all_cars[i].name == rent_records[j].nameCar)
                     {
-                        if ((toDateTime>rent_records[j].begindate&&toDateTime<rent_records[j].enddate) || (fromDatetime>rent_records[j].begindate&&fromDatetime<rent_records[j].enddate)) available_status = false;
+                        if ((rent_records[j].begindate <= toDateTime && rent_records[j].begindate >= fromDatetime) || (rent_records[j].enddate <= toDateTime && rent_records[j].enddate >= fromDatetime)||(toDateTime > rent_records[j].begindate && toDateTime < rent_records[j].enddate) || (fromDatetime > rent_records[j].begindate && fromDatetime < rent_records[j].enddate)) available_status = false;
+
                     }
                 }
                 if(available_status==true)
@@ -54,3 +55,4 @@ namespace Lesson2
         
     }
 }
+//                     ((toDateTime>rent_records[j].begindate&&toDateTime<rent_records[j].enddate) || (fromDatetime>rent_records[j].begindate&&fromDatetime<rent_records[j].enddate))
