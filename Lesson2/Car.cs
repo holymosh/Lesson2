@@ -9,10 +9,12 @@ namespace Lesson2
         public string name
         {
             get { return _name; }
+            set { _name = value; }
         }
         public string description
         {
             get { return _description; }
+            set { _description = value; }
         }
         public Car(string name, string description)
         {

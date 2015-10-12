@@ -17,7 +17,7 @@ namespace Lesson2
         }
         public Car[] getAvailableCars(DateTime fromDatetime,DateTime toDateTime)
        {
-            Car[] AvailableCars = new Car[all_cars.Length];
+            Car[] AvailableCars = new Car[1];
             bool available_status = true;
             int count_of_available_cars = 0;
             for(int i = 0; i < all_cars.Length; i++)
@@ -31,10 +31,12 @@ namespace Lesson2
                 }
                 if(available_status==true)
                 {
+                    Array.Resize(ref AvailableCars, AvailableCars.Length + 1);
                     AvailableCars[count_of_available_cars] = all_cars[i];
                     count_of_available_cars++;
                 }
             }
+           
             return AvailableCars;
 
         }
