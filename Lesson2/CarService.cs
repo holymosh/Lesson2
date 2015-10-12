@@ -27,15 +27,16 @@ namespace Lesson2
         public void getAvailableCars(DateTime fromDatetime,DateTime toDateTime)
        {
             
-            bool available_status = true;
+            bool available_status ;
             
             for(int i = 0; i < all_cars.Length; i++)
             {
+                available_status = true;
                 for(int j = 0; j < rent_records.Length; j++)
                 {
                     if (all_cars[i].name == rent_records[j].nameCar)
                     {
-                        if ((rent_records[j].begindate < toDateTime && rent_records[j].begindate > fromDatetime) || (rent_records[j].enddate < toDateTime && rent_records[j].enddate > fromDatetime)) available_status = false;
+                        if ((toDateTime>rent_records[j].begindate&&toDateTime<rent_records[j].enddate) || (fromDatetime>rent_records[j].begindate&&fromDatetime<rent_records[j].enddate)) available_status = false;
                     }
                 }
                 if(available_status==true)
