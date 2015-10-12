@@ -10,16 +10,25 @@ namespace Lesson2
     {
        private Car [] all_cars;
         private Rent[] rent_records;
+        public Car[] available_cars=new Car[0];
+        private int count_of_available_cars;
+        public int getCountOfCars
+        {
+            get { return count_of_available_cars; }
+            set { count_of_available_cars = value; }
+        }
         public CarService(Car[] all_cars, Rent[] rent_records)
         {
             this.all_cars = all_cars;
             this.rent_records = rent_records;
+            count_of_available_cars = 0;
+            
         }
-        public Car[] getAvailableCars(DateTime fromDatetime,DateTime toDateTime)
+        public void getAvailableCars(DateTime fromDatetime,DateTime toDateTime)
        {
-            Car[] AvailableCars = new Car[1];
+            
             bool available_status = true;
-            int count_of_available_cars = 0;
+            
             for(int i = 0; i < all_cars.Length; i++)
             {
                 for(int j = 0; j < rent_records.Length; j++)
@@ -31,13 +40,14 @@ namespace Lesson2
                 }
                 if(available_status==true)
                 {
-                    Array.Resize(ref AvailableCars, AvailableCars.Length + 1);
-                    AvailableCars[count_of_available_cars] = all_cars[i];
+                    Array.Resize(ref available_cars, available_cars.Length + 1);
+                    available_cars[count_of_available_cars] = all_cars[i];
                     count_of_available_cars++;
+                   // Array.Resize(ref available_cars, available_cars.Length + 1);
                 }
             }
            
-            return AvailableCars;
+            
 
         }
         

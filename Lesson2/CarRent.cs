@@ -34,7 +34,10 @@ namespace Lesson2
             FileDatabase rent_base = new FileDatabase(@"C:\holymosh\DBase");
             var rent_dates = rent_base.GetFromDatabase<Rent>();
             CarService service = new CarService(all_cars, rent_dates);
-            Car[] available_cars = service.getAvailableCars(dateTimePicker1.Value, dateTimePicker2.Value);
+            service.getAvailableCars(dateTimePicker1.Value, dateTimePicker2.Value);
+            Car[] available_cars = new Car[service.getCountOfCars];
+            available_cars = service.available_cars;
+            CarList.Items.Clear();
             CarList.Items.AddRange(available_cars);
 
         }
@@ -48,10 +51,12 @@ namespace Lesson2
             FileDatabase rent_base = new FileDatabase(@"C:\holymosh\DBase");
             var rent_dates = rent_base.GetFromDatabase<Rent>();
             CarService service = new CarService(all_cars, rent_dates);
-            Car[] available_cars = service.getAvailableCars(dateTimePicker1.Value, dateTimePicker2.Value);
+            service.getAvailableCars(dateTimePicker1.Value, dateTimePicker2.Value);
+            Car[] available_cars = new Car[service.getCountOfCars];
+            available_cars = service.available_cars;
             CarList.Items.Clear();
-            if(available_cars!=null)
             CarList.Items.AddRange(available_cars);
+
         }
 
         private void dateTimePicker2_ValueChanged(object sender, System.EventArgs e)
@@ -60,13 +65,14 @@ namespace Lesson2
                 dateTimePicker2.Value = dateTimePicker1.Value;
             FileDatabase fbase = new FileDatabase(@"C:\holymosh\DBase");
             var all_cars = fbase.GetFromDatabase<Car>();
-            FileDatabase dbase = new FileDatabase(@"C:\holymosh\DBase");
-            var rent_dates = dbase.GetFromDatabase<Rent>();
+            FileDatabase rent_base = new FileDatabase(@"C:\holymosh\DBase");
+            var rent_dates = rent_base.GetFromDatabase<Rent>();
             CarService service = new CarService(all_cars, rent_dates);
-            Car[] available_cars = service.getAvailableCars(dateTimePicker1.Value, dateTimePicker2.Value);
+            service.getAvailableCars(dateTimePicker1.Value, dateTimePicker2.Value);
+            Car[] available_cars = new Car[service.getCountOfCars];
+            available_cars = service.available_cars;
             CarList.Items.Clear();
-            if (available_cars != null)
-                CarList.Items.AddRange(available_cars);
+            CarList.Items.AddRange(available_cars);
         }
 
         private void MakeAnOrderButton_Click(object sender, System.EventArgs e)
