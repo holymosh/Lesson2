@@ -45,7 +45,7 @@ namespace Lesson2
                     Array.Resize(ref available_cars, available_cars.Length + 1);
                     available_cars[count_of_available_cars] = all_cars[i];
                     count_of_available_cars++;
-                   // Array.Resize(ref available_cars, available_cars.Length + 1);
+                   
                 }
             }
            
@@ -55,4 +55,3 @@ namespace Lesson2
         
     }
 }
-//                     ((toDateTime>rent_records[j].begindate&&toDateTime<rent_records[j].enddate) || (fromDatetime>rent_records[j].begindate&&fromDatetime<rent_records[j].enddate))

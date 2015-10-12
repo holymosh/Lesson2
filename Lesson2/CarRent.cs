@@ -19,6 +19,7 @@ namespace Lesson2
         {
             var selectedCar = CarList.SelectedItem as Car;
             CarDescription.Text = selectedCar.description;
+
         }
 
         private void CarRent_Load(object sender, System.EventArgs e)
@@ -27,9 +28,7 @@ namespace Lesson2
             FileDatabase car_base = new FileDatabase(@"C:\holymosh\DBase");
             var all_cars = car_base.GetFromDatabase<Car>();
             
-          //  DateTime date;
-           // date = System.DateTime.Now;
-           // Rent[] rent = new Rent[] ;
+          
             
             FileDatabase rent_base = new FileDatabase(@"C:\holymosh\DBase");
             var rent_dates = rent_base.GetFromDatabase<Rent>();
